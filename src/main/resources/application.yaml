@@ -1,6 +1,14 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/workspace/h2/testdb
+    url: jdbc:h2:tcp://localhost/~/workspace/h2/testdb;MODE=MYSQL
     username: sa
     password:
     driver-class-name: org.h2.Driver
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
