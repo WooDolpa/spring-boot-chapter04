@@ -17,11 +17,15 @@ public class PageRequestsDTO {
 
     private int page;
     private int size;
+    private String type;
+    private String keyword;
 
     @Builder
-    public PageRequestsDTO(int page, int size) {
+    public PageRequestsDTO(int page, int size, String type, String keyword) {
         this.page = page;
         this.size = size;
+        this.type = type;
+        this.keyword = keyword;
     }
 
     public PageRequestsDTO() {
