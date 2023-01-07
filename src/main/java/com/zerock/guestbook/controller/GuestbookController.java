@@ -34,7 +34,6 @@ public class GuestbookController {
 
     @GetMapping("/list")
     public void list(PageRequestsDTO pageRequestsDTO, Model model){
-        log.info("list................" + pageRequestsDTO);
         model.addAttribute("result", guestbookService.getList(pageRequestsDTO));
     }
 
@@ -55,7 +54,6 @@ public class GuestbookController {
 
     @GetMapping({"/read", "/modify"})
     public void read(long gno, @ModelAttribute("requestsDTO") PageRequestsDTO requestsDTO, Model model) {
-        log.info("gno:  " + gno);
         GuestbookDTO dto = guestbookService.read(gno);
         model.addAttribute("dto", dto);
     }
@@ -71,9 +69,6 @@ public class GuestbookController {
     @PostMapping("/modify")
     public String modify(GuestbookDTO dto, @ModelAttribute("requestDTO") PageRequestsDTO requestsDTO,
                          RedirectAttributes redirectAttributes) {
-
-        log.info("post modify............................................");
-        log.info("dto: " + dto);
 
         guestbookService.modify(dto);
 
